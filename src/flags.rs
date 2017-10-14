@@ -26,10 +26,10 @@ impl Flags {
         match arg {
             "-c" => self.prime_check = true,
             "-f" => self.get_factors = true,
-            "-n" => self.prime_next = true,
-            "-p" => self.prime_prev = true,
+            "-a" => self.prime_next = true,
+            "-b" => self.prime_prev = true,
             "-h" => self.request_help = true,
-            "-a" => {
+            "-e" => {
                 self.prime_check = true;
                 self.get_factors = true;
                 self.prime_next = true;

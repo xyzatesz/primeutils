@@ -16,26 +16,28 @@ pub fn check_prime(number: usize) {
     if is_prime(number) {
         println!("{} is a prime", number);
     } else {
-        println!("{} is composite", number);
+        println!("{} is not a prime", number);
     }
 }
 
 //Find the closest prime above number
 pub fn prime_next(mut number: usize) {
+    let backup = number;
     number = number + 1;
     while is_prime(number) != true {
         number = number + 1;
     }
-    println!("The next prime number is {}", number);
+    println!("The closest prime number above {} is {}", backup, number);
 }
 
 //Find the closest prime below number
 pub fn prime_prev(mut number: usize) {
+    let backup = number;
     number = number - 1;
     while is_prime(number) != true {
         number = number - 1;
     }
-    println!("The previous prime number is {}", number);
+    println!("The closest prime number below {} is {}", backup, number);
 }
 
 //Output the prime factors of number
