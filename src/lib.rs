@@ -1,4 +1,4 @@
-mod flags {
+pub mod flags {
     //Used to decide what parts of the program will execute
     pub struct Flags {
         prime_check: bool,
@@ -14,6 +14,19 @@ mod flags {
             get_factors: false,
             prime_above: false,
             prime_below: false
+        }
+    }
+
+    //Change flags based on received argument parameter
+    impl Flags {
+        pub fn set_flag(&mut self, str arg) {
+            match arg {
+                "-h" => (); //TODO IMPLEMENT HELP
+                "-f" => (); //TODO IMPLEMENT PRIME FACTOR PRINTING
+                "-a" => (); //TODO IMPLEMENT PRIME ABOVE
+                "-b" => (); //TODO IMPLEMENT PRIME BELOW
+                _ => ();    //TODO PRINT INVALID ARGUMENT
+            }
         }
     }
 }

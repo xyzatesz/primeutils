@@ -3,4 +3,10 @@ name = "primeutils"
 version = "0.1.0"
 authors = ["xyzatesz"]
 
-[dependencies]
+[lib]
+name = "primeutils_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "primeutils_bin"
+path = "src/main.rs"
