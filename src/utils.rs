@@ -97,11 +97,11 @@ pub fn get_factors(mut number: usize) {
     println!("{}", &output[..(output.chars().count() - 1)]);
 }
 
-//Generate a random prime number between 2 and 2^32-1
-pub fn generate_prime() {
+//Generate a random prime number between arguments
+pub fn generate_prime(min: u32, max: u32) {
     let mut number: u32 = 4;
     while !is_prime(number as usize) || number < 2 {
-        number = rand::random::<u32>();
+        number = rand::random::<u32>() % (max - min) + min;
     }
     println!("Generating a random prime number: {}", number);
 }
