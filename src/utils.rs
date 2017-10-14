@@ -1,5 +1,7 @@
 //Prime Utilities functionality namespace
 
+extern crate rand;
+
 //Check if number is prime or composite, and return boolean
 fn is_prime(number: usize) -> bool {
     let root: i32 = (number as f64).sqrt() as i32 + 1;
@@ -93,4 +95,13 @@ pub fn get_factors(mut number: usize) {
         prev = n;
     }
     println!("{}", &output[..(output.chars().count() - 1)]);
+}
+
+//Generate a random prime number between 2 and 2^32-1
+pub fn generate_prime() {
+    let mut number: u32 = 4;
+    while !is_prime(number as usize) || number < 2 {
+        number = rand::random::<u32>();
+    }
+    println!("Generating a random prime number: {}", number);
 }

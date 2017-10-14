@@ -18,7 +18,7 @@ pub fn init() -> Flags {
         prime_next: false,
         prime_prev: false,
         request_help: false,
-        generate_prime: bool,
+        generate_prime: false,
     }
 }
 
@@ -37,7 +37,7 @@ impl Flags {
                 self.prime_next = true;
                 self.prime_prev = true;
             }
-            "--gen" => self.generate_prime = true;
+            "--gen" => self.generate_prime = true,
             _ => if arg.starts_with("-") {
                 println!("Error: Invalid argument: {}", arg);
             },

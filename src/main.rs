@@ -29,14 +29,14 @@ fn main() {
         }
     }
 
-    //Check for input validity
-    if number < 2 {
+    //Check for input validity (skip if --gen is supplied)
+    if number < 2 && runtime_flags.generate_prime != true {
         println!("Error: Invalid number input");
         return;
     }
 
-    //If only a number, thus no flags are supplied, execute prime_check()
-    if args().count() == 2 {
+    //If only a number, thus no flags are supplied, execute prime_check() (skip if --gen is supplied)
+    if args().count() == 2 && runtime_flags.generate_prime != true {
         utils::check_prime(number);
         return;
     }
@@ -44,6 +44,10 @@ fn main() {
     //Execute requested functions
     if runtime_flags.request_help == true {
         help::print_help();
+        return;
+    }
+    if runtime_flags.generate_prime == true {
+        utils::generate_prime();
         return;
     }
     if runtime_flags.prime_check == true {utils::check_prime(number);}
