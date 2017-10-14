@@ -9,5 +9,9 @@ pub fn print_help() {
     println!("           -f    Print the prime factorization of INTEGER");
     println!("           -e    Print everything");
     println!("           -h    Display this help screen");
-    println!("       If options are omitted, -c is automatically assumed");
+    println!("           --gen Generate a random prime within 2 and the upper limit");
+    println!("");
+    println!("If options are omitted, -c is automatically assumed");
+    println!("Shorthand options and --gen are mutually exclusive.");
+    println!("With both specified, only --gen will be executed");
 }
