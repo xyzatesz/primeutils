@@ -32,6 +32,12 @@ fn main() {
         return;
     }
 
+    //If only a number, thus no flags are supplied, execute prime_check()
+    if args().count() == 2 {
+        utils::check_prime(number);
+        return;
+    }
+
     //Execute requested functions
     if runtime_flags.prime_check == true {utils::check_prime(number);}
     if runtime_flags.prime_next == true {utils::prime_next(number;)}
