@@ -1,6 +1,6 @@
 [package]
 name = "primeutils"
-version = "1.0.4"
+version = "1.1.0"
 authors = ["xyzatesz"]
 
 [lib]
@@ -10,3 +10,7 @@ path = "src/lib.rs"
 [[bin]]
 name = "primeutils"
 path = "src/main.rs"
+
+[profile.release]
+lto = true
+panic = 'abort'
