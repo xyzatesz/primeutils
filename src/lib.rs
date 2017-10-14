@@ -3,29 +3,38 @@ pub mod flags {
     pub struct Flags {
         prime_check: bool,
         get_factors: bool,
-        prime_above: bool,
-        prime_below: bool
+        prime_next: bool,
+        prime_prev: bool,
+        request_help: bool
     }
 
     //Initializes Flags
     pub fn init() -> Flags {
         Flags {
-            prime_check: true,
+            prime_check: false,
             get_factors: false,
-            prime_above: false,
-            prime_below: false
+            prime_next: false,
+            prime_prev: false,
+            request_help: false
         }
     }
 
     //Change flags based on received argument parameter
     impl Flags {
-        pub fn set_flag(&mut self, str arg) {
+        pub fn set_flag(&mut self, arg: &str) {
             match arg {
-                "-h" => (); //TODO IMPLEMENT HELP
-                "-f" => (); //TODO IMPLEMENT PRIME FACTOR PRINTING
-                "-a" => (); //TODO IMPLEMENT PRIME ABOVE
-                "-b" => (); //TODO IMPLEMENT PRIME BELOW
-                _ => ();    //TODO PRINT INVALID ARGUMENT
+                "-c" => slef.prime_check = true,
+                "-f" => self.get_factors = true,
+                "-n" => self.prime_next = true,
+                "-p" => self.prime_prev = true,
+                "-h" => self.request_help = true,
+                "-a" => {
+                    self.prime_check = true,
+                    self.get_factors = true,
+                    self.prime_next = true,
+                    self.prime_prev = true
+                }
+                _(param) => println!("Error: Invalid argument: {}", param)
             }
         }
     }
