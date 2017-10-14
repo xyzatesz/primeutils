@@ -31,4 +31,10 @@ fn main() {
         println!("Error: Invalid number input");
         return;
     }
+
+    //Execute requested functions
+    if runtime_flags.prime_check == true {utils::check_prime(number);}
+    if runtime_flags.prime_next == true {utils::prime_next(number;)}
+    if runtime_flags.prime_prev == true {utils::prime_prev(number);}
+    if runtime_flags.get_factors == true {utils::get_factors(number);}
 }
