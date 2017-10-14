@@ -1,6 +1,6 @@
 [package]
 name = "primeutils"
-version = "0.1.3"
+version = "1.0.4"
 authors = ["xyzatesz"]
 
 [lib]
@@ -8,5 +8,5 @@ name = "primeutils_lib"
 path = "src/lib.rs"
 
 [[bin]]
-name = "primeutils_bin"
+name = "primeutils"
 path = "src/main.rs"

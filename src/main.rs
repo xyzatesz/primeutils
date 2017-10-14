@@ -7,21 +7,24 @@ use primeutils_lib::flags::Flags;
 fn main() {
     //Initialize runtime variables
     let mut runtime_flags: Flags = flags::init();
-    let number = 0;
+    let mut number = 0;
 
     //Check if the number of parameters is 0 (the first is the program path)
     if args().count() == 1 {
-        //TODO IMPLEMENT HELP
+        help::print_help();
         return;
     }
 
     //Set runtime flags and parse input number
     for arg in args() {
-        runtime_flags.set_flag(arg);
+        runtime_flags.set_flag(&arg);
         if arg.parse::<usize>().is_ok() {
             number = match arg.parse::<usize>() {
                 Ok(val) => val,
-                Err => return
+                Err(why) => {
+                    println!("Error: This shouldn't happen: {}", why);
+                    return
+                }
             }
         }
     }
@@ -39,8 +42,12 @@ fn main() {
     }
 
     //Execute requested functions
+    if runtime_flags.request_help == true {
+        help::print_help();
+        return;
+    }
     if runtime_flags.prime_check == true {utils::check_prime(number);}
-    if runtime_flags.prime_next == true {utils::prime_next(number;)}
+    if runtime_flags.prime_next == true {utils::prime_next(number);}
     if runtime_flags.prime_prev == true {utils::prime_prev(number);}
     if runtime_flags.get_factors == true {utils::get_factors(number);}
 }

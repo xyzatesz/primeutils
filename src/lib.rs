@@ -2,11 +2,11 @@
 pub mod flags {
     //Used to decide what parts of the program will execute
     pub struct Flags {
-        prime_check: bool,
-        get_factors: bool,
-        prime_next: bool,
-        prime_prev: bool,
-        request_help: bool
+        pub prime_check: bool,
+        pub get_factors: bool,
+        pub prime_next: bool,
+        pub prime_prev: bool,
+        pub request_help: bool
     }
 
     //Initializes Flags
@@ -30,12 +30,16 @@ pub mod flags {
                 "-p" => self.prime_prev = true,
                 "-h" => self.request_help = true,
                 "-a" => {
-                    self.prime_check = true,
-                    self.get_factors = true,
-                    self.prime_next = true,
-                    self.prime_prev = true
+                    self.prime_check = true;
+                    self.get_factors = true;
+                    self.prime_next = true;
+                    self.prime_prev = true;
                 }
-                _(param) => println!("Error: Invalid argument: {}", param)
+                _ => {
+                    if arg.starts_with("-") {
+                        println!("Error: Invalid argument: {}", arg);
+                    }
+                }
             }
         }
     }
@@ -66,7 +70,7 @@ pub mod utils {
     //Find the closest prime above number
     pub fn prime_next(mut number: usize) {
         number = number + 1;
-        while check_prime(number) != true {
+        while is_prime(number) != true {
             number = number + 1;
         }
         println!("The next prime number is {}", number);
@@ -75,7 +79,7 @@ pub mod utils {
     //Find the closest prime below number
     pub fn prime_prev(mut number: usize) {
         number = number - 1;
-        while check_prime(number) != true {
+        while is_prime(number) != true {
             number = number - 1;
         }
         println!("The previous prime number is {}", number);
@@ -89,7 +93,7 @@ pub mod utils {
             for i in 2..(number + 1) {
                 //If number is prime, divide with it, and exit the loop
                 //Serves as a speed enhancement for large prime factors
-                if check_prime(number) {
+                if is_prime(number) {
                     factors.push(number);
                     number = 1;
                     break;
