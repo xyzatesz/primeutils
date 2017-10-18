@@ -98,10 +98,10 @@ pub fn get_factors(mut number: usize) {
 }
 
 //Generate a random prime number between arguments
-pub fn generate_prime(min: u32, max: u32) {
-    let mut number: u32 = 4;
+pub fn generate_prime(min: usize, max: usize) {
+    let mut number: usize = 4;
     while !is_prime(number as usize) || number < 2 {
-        number = rand::random::<u32>() % (max - min) + min;
+        number = rand::random::<usize>() % (max - min) + min;
     }
     println!("Generating a random prime number: {}", number);
 }

@@ -47,7 +47,7 @@ fn main() {
         return;
     }
     if runtime_flags.generate_prime == true {
-        utils::generate_prime(2, <u32>::max_value());
+        utils::generate_prime(runtime_flags.gen_prime_min, runtime_flags.gen_prime_max);
         return;
     }
     if runtime_flags.prime_check == true {utils::check_prime(number);}
