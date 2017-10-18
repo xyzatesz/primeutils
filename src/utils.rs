@@ -69,7 +69,7 @@ pub fn get_factors(mut number: usize) {
     factors.push(0);
     //Factor checking - Create output string from factor array
     let mut output = String::from("Prime factorization:");
-    let mut prev = 0;
+    let mut prev: usize = 0;
     let mut factor_exp = 1;
     //Always check if the current number is the same as the previous - if yes,
     //increment exponent, shift prev, and repeat. If no, concat number (prev) and
