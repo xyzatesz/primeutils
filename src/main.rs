@@ -11,7 +11,7 @@ fn main() {
 
     //Check if the number of parameters is 0 (the first is the program path)
     if args().count() == 1 {
-        help::print_help();
+        help::print_help_short();
         return;
     }
 
@@ -29,6 +29,12 @@ fn main() {
         }
     }
 
+    //Check for help request first
+    if runtime_flags.request_help == true {
+        help::print_help();
+        return;
+    }
+
     //Check for input validity (skip if --gen is supplied)
     if number < 2 && runtime_flags.generate_prime != true {
         println!("Error: Invalid number input");
@@ -42,10 +48,6 @@ fn main() {
     }
 
     //Execute requested functions
-    if runtime_flags.request_help == true {
-        help::print_help();
-        return;
-    }
     if runtime_flags.generate_prime == true {
         utils::generate_prime(runtime_flags.gen_prime_min, runtime_flags.gen_prime_max);
         return;
