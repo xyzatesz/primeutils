@@ -104,6 +104,10 @@ pub fn generate_prime(min: usize, max: usize) {
         println!("Error: --min value should be lower than --max value");
         return;
     }
+    if min < 2 || max < 3 {
+        println!("Error: Invalid interval supplied");
+        return;
+    }
     //Error checking: (Minimal) Prime exists in interval
     if min + 100 >= max {
         let mut bad_interval = true;
