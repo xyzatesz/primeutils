@@ -99,6 +99,22 @@ pub fn get_factors(mut number: usize) {
 
 //Generate a random prime number between arguments
 pub fn generate_prime(min: usize, max: usize) {
+    //Error checking: Correct parameters
+    if min >= max {
+        println!("Error: --min value should be lower than --max value");
+        return;
+    }
+    //Error checking: (Minimal) Prime exists in interval
+    if min + 100 >= max {
+        let mut bad_interval = true;
+        for i in min..(min+100) {
+            if is_prime(i) {bad_interval = false;}
+        }
+        if bad_interval {
+            println!("Error: No primes detected in supplied interval");
+            return;
+        }
+    }
     let mut number: usize = 4;
     while !is_prime(number as usize) || number < 2 {
         number = rand::random::<usize>() % (max - min) + min;
