@@ -109,9 +109,9 @@ pub fn generate_prime(min: usize, max: usize) {
         return;
     }
     //Error checking: (Minimal) Prime exists in interval
-    if min + 100 >= max {
+    if (min + 100) >= max {
         let mut bad_interval = true;
-        for i in min..(min+100) {
+        for i in min..max {
             if is_prime(i) {bad_interval = false;}
         }
         if bad_interval {
