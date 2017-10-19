@@ -21,10 +21,7 @@ fn main() {
         if arg.parse::<usize>().is_ok() {
             number = match arg.parse::<usize>() {
                 Ok(val) => val,
-                Err(why) => {
-                    println!("Error: This shouldn't happen: {}", why);
-                    return
-                }
+                Err(_) => return
             }
         }
     }
