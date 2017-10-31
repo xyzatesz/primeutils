@@ -30,3 +30,5 @@ The upper range of the accepted numbers is limited by the architecture of the us
 ## Building
 
 For building, you need to have Rust and Cargo installed. After that, you can run `cargo build --release` to build for your current platform, or run `./autobuild.sh`, which will try to build it for both 32-bit and 64-bit versions of both Windows and Linux. For the script to work, you need to set up separate compilers for all four versions, and you need the `strip` GNU Coreutils command, which decreases the binary sizes significantly.
+
+Alternatively, you can find prebuilt binaries under the 'Releases' tab for those four platforms.
