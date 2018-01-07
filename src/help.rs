@@ -23,7 +23,7 @@ pub fn print_help() {
     println!("");
     println!("If options are omitted in (1), -c is automatically assumed");
     println!("If options are omitted in (2), the limits will be set");
-    println!("to 2 and the upper unsigned int limit of the architecture");
+    println!("to 2 and 2^32-1");
     println!("");
     println!("The two usage options are mutually exclusive. With both");
     println!("specified, only the prime generating will be executed");
