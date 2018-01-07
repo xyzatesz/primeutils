@@ -8,8 +8,8 @@ pub struct Flags {
     pub prime_prev: bool,
     pub request_help: bool,
     pub generate_prime: bool,
-    pub gen_prime_min: usize,
-    pub gen_prime_max: usize,
+    pub gen_prime_min: u32,
+    pub gen_prime_max: u32,
 }
 
 //Initializes Flags
@@ -22,7 +22,7 @@ pub fn init() -> Flags {
         request_help: false,
         generate_prime: false,
         gen_prime_min: 2,
-        gen_prime_max: <usize>::max_value(),
+        gen_prime_max: <u32>::max_value(),
     }
 }
 
@@ -41,7 +41,7 @@ impl Flags {
             } else if arg.starts_with("--min") {
                 let mut copy: String = String::from(arg);
                 copy = copy.split_off(6);
-                self.gen_prime_min = match copy.parse::<usize>() {
+                self.gen_prime_min = match copy.parse::<u32>() {
                     Ok(val) => val,
                     Err(why) => {
                         println!("Error: Invalid --min argument: {}", why);
@@ -51,7 +51,7 @@ impl Flags {
             } else if arg.starts_with("--max") {
                 let mut copy: String = String::from(arg);
                 copy = copy.split_off(6);
-                self.gen_prime_max = match copy.parse::<usize>() {
+                self.gen_prime_max = match copy.parse::<u32>() {
                     Ok(val) => val,
                     Err(why) => {
                         println!("Error: Invalid --max argument: {}", why);

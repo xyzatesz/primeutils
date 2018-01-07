@@ -18,8 +18,8 @@ fn main() {
     //Set runtime flags and parse input number
     for arg in args() {
         runtime_flags.set_flag(&arg);
-        if arg.parse::<usize>().is_ok() {
-            number = match arg.parse::<usize>() {
+        if arg.parse::<u32>().is_ok() {
+            number = match arg.parse::<u32>() {
                 Ok(val) => val,
                 Err(_) => return
             }
