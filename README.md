@@ -19,13 +19,13 @@ Usage: (1) primeutils INTEGER [OPTIONS] - Prime checking and factoring
     
 If options are omitted in (1), -c is automatically assumed
 If options are omitted in (2), the limits will be set
-to 2 and the upper unsigned int limit of the architecture
+to 2 and 2^32-1
 
 The two usage options are mutually exclusive. With both
 specified, only the prime generating will be executed
 ```
 
-The upper range of the accepted numbers is limited by the architecture of the user, 2<sup>32</sup>-1 for 32-bit architectures, and 2<sup>64</sup>-1 for 64-bit ones.
+The upper range of the accepted numbers is 2<sup>32</sup>-1.
 
 ## Building
 
